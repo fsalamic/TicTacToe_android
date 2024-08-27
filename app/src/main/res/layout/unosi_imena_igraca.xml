@@ -5,8 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IzaberiModIgranja"
+    tools:context=".UnosImena_Igraca"
     android:background="#03A9F4">
+
 
     <TextView
         android:id="@+id/textView"
@@ -27,46 +28,51 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/izaberi_mod_igranja"
+        android:text="@string/Uputstvo_nazivIgraca_dual"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="150sp"
-        android:layout_height="50sp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="5dp"
-        android:background="@drawable/dugme_jedan_igrac"
-        android:onClick="pocetakIgreSingle"
-        android:text="@string/singleplayer"
+    <EditText
+        android:id="@+id/PrviIgrac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="@string/ImeBr1"
         android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
+        android:textColor="@color/player1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="150sp"
-        android:layout_height="50sp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
-        android:background="@drawable/dugme_dva_igraca"
-        android:onClick="pocetakIgreDual"
-        android:text="@string/dualplayer"
-        android:textColor="@color/white"
-        android:textSize="14sp"
+    <EditText
+        android:id="@+id/DrugiIgrac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="@string/ImeBr2"
+        android:textAlignment="center"
+        android:textColor="@color/player2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PrviIgrac" />
 
-
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/dugme_start"
+        android:onClick="SubmitDugmeKlik"
+        android:text="@string/izbor_igraca_start_dugme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DrugiIgrac" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

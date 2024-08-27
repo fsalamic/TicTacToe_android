@@ -12,7 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class DualPlayer_Igra extends AppCompatActivity {
+public class Glavna_Igra extends AppCompatActivity {
 
     private TicTacToeTabla ticTacToeTabla;
 
@@ -21,7 +21,7 @@ public class DualPlayer_Igra extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.dual_player_igra);
+        setContentView(R.layout.glavna_igra);
 
         Button IgratiOpet_dugme = findViewById(R.id.Restart);
         Button Pocetna_dugme = findViewById(R.id.povratak_u_meni);

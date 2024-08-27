@@ -13,19 +13,10 @@
         android:theme="@style/Theme.TicTacToe"
         tools:targetApi="31">
         <activity
-            android:name=".DualPlayer_Igra"
+            android:name=".Glavna_Igra"
             android:exported="false" />
         <activity
-            android:name=".SinglePlayer_Igra"
-            android:exported="false" />
-        <activity
-            android:name=".UnosImena_Jedan_Igrac"
-            android:exported="false" />
-        <activity
-            android:name=".UnosImena_Dva_Igraca"
-            android:exported="false" />
-        <activity
-            android:name=".IzaberiModIgranja"
+            android:name=".UnosImena_Igraca"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

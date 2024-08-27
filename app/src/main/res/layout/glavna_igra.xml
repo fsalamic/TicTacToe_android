@@ -6,11 +6,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SinglePlayer_Igra"
+    tools:context=".Glavna_Igra"
     android:background="#03A9F4">
 
     <TextView
-        android:id="@+id/naslov1"
+        android:id="@+id/naslov"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/trenutni_igrac1"
+        android:id="@+id/trenutni_igrac"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -31,13 +31,13 @@
         android:text="@string/početak_igre"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/ticTacToeTabla_single"
+        app:layout_constraintBottom_toTopOf="@+id/ticTacToeTabla"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/naslov1" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <com.fsalamic.tictactoe.TicTacToeTabla
-        android:id="@+id/ticTacToeTabla_single"
+        android:id="@+id/ticTacToeTabla"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,7 +51,7 @@
         custom:bojaPobjednika="@color/winner"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout1"
+        android:id="@+id/constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="21dp"
@@ -59,10 +59,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ticTacToeTabla_single">
+        app:layout_constraintTop_toBottomOf="@+id/ticTacToeTabla">
 
         <Button
-            android:id="@+id/povratak_u_meni1"
+            android:id="@+id/povratak_u_meni"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
@@ -71,12 +71,12 @@
             android:text="@string/glavni_ekran_povratak_u_meni"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/Restart1"
+            app:layout_constraintEnd_toStartOf="@+id/Restart"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/Restart1"
+            android:id="@+id/Restart"
             android:layout_width="150dp
 "
             android:layout_height="wrap_content"
@@ -88,5 +88,4 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
