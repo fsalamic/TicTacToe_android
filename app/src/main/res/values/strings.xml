@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="glavna_stranica_naslov"> Tic Tac Toe</string>
+    <string name="glavna_stranica_start_dugme"> Start</string>
+
+
+    <string name="izaberi_mod_igranja"> Izaberi mod igranja</string>
+    <string name="singleplayer"> Jedan Igrač </string>
+    <string name="dualplayer"> Dva Igrača </string>
+    <string name="Uputstvo_nazivIgraca_single">Unesite ime igrača</string>
+    <string name="Uputstvo_nazivIgraca_dual">Unesite ime oba igrača</string>
+    <string name="ImeBr1">Ime prvog igrača</string>
+    <string name="ImeBr2">Ime drugog igrača</string>
+    <string name="Uputstvo_nazivDrugogIgraca">Unesite ime drugog igrača</string>
+    <string name="izbor_igraca_start_dugme"> Start</string>
+    <string name="glavni_ekran_povratak_u_meni"> Glavni meni</string>
+    <string name="glavni_ekran_ispočetka"> Ispočetka</string>
+    <string name="početak_igre">Započnite igru !</string>
+
+
+
+</resources>

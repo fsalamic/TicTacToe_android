@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TicTacToeTabla">
+        <attr name="bojaTable" format="color"/>
+        <attr name="bojaIgraca1" format="color"/>
+        <attr name="bojaIgraca2" format="color"/>
+        <attr name="bojaPobjednika" format="color"/>
+    </declare-styleable>
+</resources>
