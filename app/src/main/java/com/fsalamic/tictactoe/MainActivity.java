@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startDugmeKlik(View view) {
-        Intent intent = new Intent (this, IzaberiModIgranja.class);
+        Intent intent = new Intent (this, UnosImena_Igraca.class);
         startActivity(intent);
     }
 }
