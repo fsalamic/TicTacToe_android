@@ -24,8 +24,8 @@ public class UnosImena_Igraca extends AppCompatActivity {
         setContentView(R.layout.unosi_imena_igraca);
 
         // Povezivanje EditText polja sa odgovarajućim ID-jevima iz layout-a
-        Br1 = findViewById(R.id.PrviIgrac);
-        Br2 = findViewById(R.id.DrugiIgrac);
+        Br1 = findViewById(R.id.PrviIgrac); //Definicija polja gdje se definiše ime prvog igrača
+        Br2 = findViewById(R.id.DrugiIgrac); //Definicija polja gdje se definiše ime drugog igrača
 
         // Postavljanje padding-a za glavni View kako bi se prilagodio sistemskim barovima
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
