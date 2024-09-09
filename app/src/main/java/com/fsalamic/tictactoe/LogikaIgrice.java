@@ -9,24 +9,26 @@ import java.util.Random;
 
 public class LogikaIgrice {
 
-    private int[][] tabla;
+    private int[][] tabla; // Matrica koja predstavlja tablu igre
 
     //1 element - red, 2 element - kolona, 3 element - tip linije
-    private int[] tipPobjede = {-1, -1, -1};
-    private Button Pocetna_dugme;
+    private int[] tipPobjede = {-1, -1, -1}; // Informacije o tipu pobjede
+    private Button Pocetna_dugme; // Dugme za početak igre
 
-    private Button IgratiOpet_dugme;
 
-    private String[] ImenaIgraca = {"Igrac 1", "Igrac 2"};
-    private TextView KojiIgrac_tekst;
+    private Button IgratiOpet_dugme; // Dugme za ponovno igranje
+
+    private String[] ImenaIgraca = {"Igrac 1", "Igrac 2"}; // Imena igrača
+    private TextView KojiIgrac_tekst; // Tekst koji prikazuje trenutnog igrača
 
 
     private int igrac = 1;
    /*
      uvijek je igrac 1 prvi koji igra
-     public int igrac = BiracIgraca.generateRandomInteger(1, 2); - kod za nasumican izbor igraca
     */
 
+
+    // Konstruktor koji inicijalizuje tablu
     LogikaIgrice() {
         tabla = new int[3][3];
         for (int r=0;r<3;r++) {
@@ -36,10 +38,10 @@ public class LogikaIgrice {
         }
     }
 
-
+    // Metoda za ažuriranje table
     public boolean azurirajTablu (int row, int col ) {
         if (tabla[row-1][col-1] == 0 ) {
-            tabla[row-1][col-1] = igrac;
+            tabla[row-1][col-1] = igrac; // Postavlja potez trenutnog igrača
 
             if(igrac == 1) {
                 //prikaze koji igrac trenutno igra
@@ -55,39 +57,39 @@ public class LogikaIgrice {
 
             return true;
         } else {
-            return false;
+            return false; // Polje je već zauzeto
         }
     }
 
-
+    // Metoda za provjeru pobjednika
     public boolean provjeriPobjednika() {
         //provjerava da li imamo pobjednika
         boolean pobjednik = false;
-        //provjerava redove (po horizontali) - tip pobjede = 1
+
+        // Provjera redova (po horizontali)
         for (int r=0;r<3;r++) {
-            //provjerava da li je pobjednik igrac 1
             if(tabla[r][0] == tabla[r][1] && tabla[r][0] == tabla[r][2] && tabla[r][0] != 0) {
                 pobjednik = true;
                 // r = red, 0 = kolona, 1 = tip linije
-                tipPobjede = new int[] {r, 0, 1};
+                tipPobjede = new int[] {r, 0, 1}; // Tip pobjede: red (1)
 
             }
         }
-        //provjerava kolone (po vertikali) - tip pobjede = 2
+        // Provjera kolona (po vertikali)
         for (int c=0;c<3;c++) {
             if(tabla[0][c] == tabla[1][c] && tabla[0][c] == tabla[2][c] && tabla[0][c] != 0) {
-                tipPobjede = new int[] {0, c, 2};
+                tipPobjede = new int[] {0, c, 2};  // Tip pobjede: kolona (2)
                 pobjednik = true;
             }
         }
-        //provjerava negativne dijagonale - tip pobjede = 3
+
+        // Provjera dijagonala
         if(tabla[0][0] == tabla[1][1] && tabla[0][0] == tabla[2][2] && tabla[0][0] != 0) {
-            tipPobjede = new int[] {0, 2, 3};
+            tipPobjede = new int[] {0, 2, 3}; // Tip pobjede: negativna dijagonala (3)
                 pobjednik = true;
             }
-        // provjerava pozitivne dijagonale - tip pobjede = 4
         if(tabla[2][0] == tabla[1][1] && tabla[2][0] == tabla[0][2] && tabla[2][0] != 0) {
-            tipPobjede = new int[] {2, 2, 4};
+            tipPobjede = new int[] {2, 2, 4};  // Tip pobjede: pozitivna dijagonala (4)
                 pobjednik = true;
             }
 
@@ -97,7 +99,7 @@ public class LogikaIgrice {
         for (int r=0;r<3;r++) {
             for (int c=0;c<3;c++) {
                 if(tabla[r][c] != 0) {
-                    tablaPopunjena += 1;
+                    tablaPopunjena += 1; // Broji popunjena polja
                 }
             }
         }
@@ -122,23 +124,24 @@ public class LogikaIgrice {
                 return true;
         }
         else {
-            return false;
+            return false; // Nema pobjednika i tabla nije popunjena
         }
 
 
     }
 
+    // Metoda za resetovanje table
     public void resetujTablu () {
         for (int r=0;r<3;r++) {
             for (int c=0;c<3;c++) {
-                tabla[r][c] = 0;
+                tabla[r][c] = 0;  // Resetuje sva polja na 0
             }
         }
 
         tipPobjede = new int[] {-1, -1, -1};
 
 
-        igrac = BiracIgraca.generateRandomInteger(1, 2);
+        igrac = BiracIgraca.generateRandomInteger(1, 2);  // Nasumično bira igrača koji počinje putem BiracIgraca klase
         Pocetna_dugme.setVisibility(TextView.GONE);
         IgratiOpet_dugme.setVisibility(TextView.GONE);
         KojiIgrac_tekst.setText("Prvi potez igra: " + ImenaIgraca[igrac-1]);
@@ -147,6 +150,7 @@ public class LogikaIgrice {
     }
 
 
+    // Set metode za postavljanje dugmadi i teksta
     public void SetPocetna_dugme(Button Pocetna_dugme1) {
         this.Pocetna_dugme = Pocetna_dugme1;
     }
@@ -162,6 +166,8 @@ public class LogikaIgrice {
         this.KojiIgrac_tekst = KojiIgrac_tekst2;
     }
 
+
+    // Metode za povlačenje trenutnog stanja table i igrača
    public int[][] povuciTablu() {
         return tabla;
    }

@@ -2,7 +2,7 @@ package com.fsalamic.tictactoe;
 
 import java.util.Random;
 
-//ovaj java fajl je potreban kako bi nasumicno bio izabran igrac koji ce prvi da igra (X ili O)
+//Ovaj Java je potreban kako bi nasumično bio izabran igrac koji će prvi da igra (X ili O) u drugoj rundi
 public class BiracIgraca {
 
     public static int generateRandomInteger(int min, int max) {

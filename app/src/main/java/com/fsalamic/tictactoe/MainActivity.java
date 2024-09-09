@@ -15,8 +15,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        EdgeToEdge.enable(this); // Omogućavanje Edge-to-Edge prikaza
+        setContentView(R.layout.activity_main); // Postavljanje glavnog layout-a za aktivnost
+
+        // Postavljanje padding-a za glavni view kako bi se prilagodio sistemskim barovima
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -25,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Metoda koja se poziva kada se klikne na dugme za početak igre
     public void startDugmeKlik(View view) {
+        // Kreiranje novog Intenta za prelazak na aktivnost UnosImena_Igraca
+
         Intent intent = new Intent (this, UnosImena_Igraca.class);
         startActivity(intent);
     }

@@ -13,19 +13,20 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 public class TicTacToeTabla extends View {
+
+    // Boje za različite elemente table i igrača
     private final int bojaTable;
     public static int bojaIgraca1;
     public static int bojaIgraca2;
     private final int bojaPobjednika;
-
     private boolean pobjednicki_tekst = false;
-
-
     private final Paint boja = new Paint();
-
     private final LogikaIgrice igrica;
     private int VelicinaKocke = getWidth()/3;
 
+
+
+    // Konstruktor klase
     public TicTacToeTabla(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
@@ -44,6 +45,7 @@ public class TicTacToeTabla extends View {
     }
 
 
+    // Postavljanje dimenzija table
     @Override
     protected void onMeasure(int width, int height){
         super.onMeasure(width,height);
@@ -54,6 +56,7 @@ public class TicTacToeTabla extends View {
         setMeasuredDimension(dimension, dimension);
     }
 
+    // Crtanje table i markera
     @Override
     protected void onDraw(Canvas tabla) {
         boja.setStyle(Paint.Style.STROKE);
@@ -69,7 +72,7 @@ public class TicTacToeTabla extends View {
         }
     }
 
-
+    // Obrada dodira na ekranu
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         float x = event.getX();
@@ -89,7 +92,7 @@ public class TicTacToeTabla extends View {
                         pobjednicki_tekst = true;
                         invalidate();
                     }
-                    //azuriraj koji igrac trenutno igra
+                    // Ažuriranje koji igrač trenutno igra
                     if(igrica.kojiIgrac() % 2 == 0) {
                         igrica.namjestiIgraca(igrica.kojiIgrac()-1);
                     }
@@ -109,6 +112,7 @@ public class TicTacToeTabla extends View {
         return false;
     }
 
+    // Crtanje linija table
     private void nacrtajTablu(Canvas canvas) {
         boja.setColor(bojaTable);
         boja.setStrokeWidth(16);
@@ -121,6 +125,7 @@ public class TicTacToeTabla extends View {
         }
     }
 
+    // Crtanje markera (X i O)
     private void nacrtajMarkere(Canvas canvas){
         for (int r=0; r<3; r++) {
             for (int c=0; c<3; c++) {
@@ -135,6 +140,7 @@ public class TicTacToeTabla extends View {
         }
     }
 
+    // Crtanje X markera
     private void nacrtajX(Canvas canvasX, int row, int col) {
         boja.setColor(bojaIgraca1);
 
@@ -150,6 +156,8 @@ public class TicTacToeTabla extends View {
                           ((row+1)*VelicinaKocke - VelicinaKocke*0.2f),
                 boja);
     }
+
+    // Crtanje O markera
     private void nacrtajO(Canvas canvasO, int row, int col) {
         boja.setColor(bojaIgraca2);
         canvasO.drawOval( (col*VelicinaKocke + VelicinaKocke*0.2f),
@@ -160,8 +168,9 @@ public class TicTacToeTabla extends View {
 
     }
 
+
+    // Crtanje Horizontalne linije pobjednika
     private void nacrtajHorizontalnuliniju(Canvas canvas_horiz, int row, int col) {
-        //Nacrtaj horizontalnu liniju
         canvas_horiz.drawLine(col,
                 row*VelicinaKocke + VelicinaKocke/2,
                 VelicinaKocke*3,
@@ -170,8 +179,8 @@ public class TicTacToeTabla extends View {
 
     }
 
+    // Crtanje Vertikalne linije pobjednika
     private void nacrtajVertikalnuliniju(Canvas canvas_vert, int row, int col) {
-        //Nacrtaj vertikalnu liniju
         canvas_vert.drawLine(col*VelicinaKocke + VelicinaKocke/2,
                 row,
                 col*VelicinaKocke + VelicinaKocke/2,
@@ -180,8 +189,8 @@ public class TicTacToeTabla extends View {
 
     }
 
+    // Crtanje Pozitivne dijagonalne linije pobjednika
     private void nacrtajDijagonaluPozitivnu(Canvas canvas_pozitivna) {
-        //Nacrtaj dijagonalu pozitivnu
         canvas_pozitivna.drawLine(0,
                 0,
                 VelicinaKocke*3,
@@ -189,8 +198,9 @@ public class TicTacToeTabla extends View {
                 boja);
 
     }
+
+    // Crtanje Negativne dijagonalne linije pobjednika
     private void nacrtajDijagonaluNegativnu(Canvas canvas_negativna) {
-        //Nacrtaj dijagonalu negativnu
         canvas_negativna.drawLine(0,
 
                 VelicinaKocke*3,
@@ -200,6 +210,7 @@ public class TicTacToeTabla extends View {
 
     }
 
+    // Crtanje linije pobjednika zavisno od tipa pobjede
     private void nacrtajLinijuPobjednika(Canvas canvas) {
         int row = igrica.tipPobjede()[0];
         int col = igrica.tipPobjede()[1];
@@ -224,6 +235,8 @@ public class TicTacToeTabla extends View {
 
     }
 
+
+    // Postavljanje igre
     public void namjestiIgru (Button igrajOpet, Button pocetna, TextView kojiIgrac, String[] imena) {
         igrica.SetIgratiOpet(igrajOpet);
         igrica.SetKojiIgrac_dugme(kojiIgrac);
@@ -232,6 +245,7 @@ public class TicTacToeTabla extends View {
 
     }
 
+    // Resetovanje table
     public void resetujTablu() {
         igrica.resetujTablu();
         pobjednicki_tekst = false;
